@@ -1,0 +1,26 @@
+{
+    "name": "ntwalibas/contracts",
+    "type": "library",
+    "description": "Contracts libray, a design by contract libray.",
+    "keywords": ["libray", "contracts", "php", "assertions", "validation"],
+    "homepage": "https://github.com/ntwalibas/contracts",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ntwali Bashige",
+            "email": "ntwali.bashige@gmail.com",
+            "homepage": "http://ntwalibas.me"
+        }
+    ],
+    
+    "require": {
+        "php": ">=5.3.0",
+        "jakubledl/dissect": "dev-master"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Contracts\\": "src/Contracts"
+        }
+    }
+}
