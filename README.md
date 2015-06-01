@@ -428,7 +428,7 @@ try {
 
 ```
 
-To name an assertion, pass an array with the structure `["assertionId" => "predicate|quantifier"]` as the first argument to `AssertThat`.
+To name an assertion, pass an array with the structure `["assertionId" => "predicate|quantifier"]` as the first argument to `AssertThat`. If you passed a predicate or quantifier directly without an assertion ID, it will be given the ID `unnamed-assertion`.
 
 ## Conclusion
 
@@ -447,6 +447,6 @@ Internally, Contracts uses internally [dissect](https://github.com/jakubledl/dis
 1. Write unit tests,
 2. Write more predicates and computations,
 3. Replace the boolean expression parser by a small recursive descent parser to eliminate the dependency on dissect,
-4. Improv on the overall architecture.
+4. Improve on the overall architecture.
 
-Contributions are welcome!
+At the moment, I'm trying to stabilize the API and write unit tests for the existing code. Once that's done, contributions are welcome!
