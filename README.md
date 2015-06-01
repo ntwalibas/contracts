@@ -1,6 +1,8 @@
 # Contracts - an assertion library
 
-> This library is not production ready because it is not tested yet. Please don't use it in production but do play with it! It's a proof-of-concept.
+**STATUS:** API stabilization. Feedback highly appreciated!
+
+> This library is not production ready. Please don't use it in production but do play with it! It's a proof-of-concept.
 
 Contracts is a library to help you write quite intersting assertions. Initially, I was looking at making design by contract possible in PHP but due to the nature of task, I ended up settling with assertions but kept the name.
 
