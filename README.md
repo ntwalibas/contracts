@@ -384,7 +384,7 @@ var_dump($test()); // Will print true
 
 ```
 
-Note with the example above that it is true that for all the elements in the said, you can always find one other element in the same set (which is just the same element) such that their division will equal one.
+Note that with the example above, it is true that for all the elements in the said set, you can always find one other element in the same set (which is just the same element) such that their division will equal one.
 
 **Caution:** The fact that `itHoldsThat` and `suchThat` methods return callables is not stabilized yet and might break in the future to instead return objects on which you can call the `evaluate` method.
 
@@ -409,7 +409,7 @@ $set = array(1, 2, 3, 4, 5, 6, 7);
 try {
     AssertThat(
         forAll('x')->in($set)->itHoldsThat(
-            variable('x')->greaterThan(0)->andX()->lessThan("7")
+            varx('x')->greaterThan(0)->andx()->lessThan("7")
         ),
         "All the numbers must be greater than 0 and less than 7"
     );
