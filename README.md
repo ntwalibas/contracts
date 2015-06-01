@@ -6,7 +6,7 @@
 
 Contracts is a library to help you write quite intersting assertions. Initially, I was looking at making design by contract possible in PHP but due to the nature of task, I ended up settling with assertions but kept the name.
 
-It is quite powerful because it implements [first-order predicate calculus](en.wikipedia.com/wiki/First-order_logic) in an intuitive way, a feature I have failed to find in many assertion and validation librairies. Heck, you can even implement your own predicates.  
+It is quite powerful because it implements [first-order predicate calculus](http://en.wikipedia.com/wiki/First-order_logic) in an intuitive way, a feature I have failed to find in many assertion and validation librairies. Heck, you can even implement your own predicates.  
 It is still in its early stages (many native predicates are not implemented) but it is meant to grow!
 
 
