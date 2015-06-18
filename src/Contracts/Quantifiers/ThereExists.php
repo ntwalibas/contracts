@@ -85,7 +85,7 @@ class ThereExists implements Quantifier
                 $that->environment->attach($that->symbol, $value);
 
                 // if we have a predicate set
-                if ($predicates instanceof Predicates) {
+                if ($predicates instanceof Predicates || $predicates instanceof Quantifier) {
                     try {
                         $constraint = $predicates->evaluate($predicates);
                     } catch(\Exception $exception) {
@@ -94,10 +94,8 @@ class ThereExists implements Quantifier
 
                         throw $predicateException;
                     }
-                } else if (is_callable($predicates)) { // We have the result from a quantifier, hopfully
-                    $constraint = $predicates();
                 } else {
-                    throw new \InvalidArgumentException("The value passed to 'suchThat' must either be a predicate set or a callable from a quantifier.");
+                    throw new \InvalidArgumentException("The value passed to 'suchThat' must either be a predicate set or a quantifier.");
                 }
 
                 if ($constraint == true) {
