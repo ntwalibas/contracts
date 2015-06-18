@@ -61,6 +61,11 @@ class ForAll implements Quantifier
         return $this;
     }
 
+    public function getTraversable()
+    {
+        return $this->traversable;
+    }
+
     public function itHoldsThat($predicates)
     {
         $that = $this;
