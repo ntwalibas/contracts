@@ -61,4 +61,13 @@ class LogicParserTest extends PHPUnit_Framework_TestCase
 
         // TODO: Associativity and precedence tests
     }
+
+    /**
+     * The parser throws a number of exceptions when passed incorrect expressions
+     * A portion of these tests is covered when testing the predicate evaluator and that will do or now
+     */
+    public function testParseExceptions()
+    {
+        
+    }
 }
