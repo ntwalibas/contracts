@@ -15,13 +15,13 @@ use Contracts\PredicateEvaluator;
 use Contracts\Helpers\Number;
 use Contracts\Helpers\Let;
 
-function number($symbol)
+function test_evaluator_number($symbol)
 {
     $number = new Number;
     return $number($symbol);
 }
 
-function let($symbol)
+function test_evaluator_let($symbol)
 {
     return new Let($symbol);
 }
@@ -64,22 +64,22 @@ class PredicateEvalutatorTest extends PHPUnit_Framework_TestCase
      */
     public function testEvaluate()
     {
-        let('x')->be(14);
-        $predicate = number('x')->greaterThan(13);
+        test_evaluator_let('x')->be(14);
+        $predicate = test_evaluator_number('x')->greaterThan(13);
 
         // Assert that one predicates works as expected
         $this->assertTrue($predicate->evaluate(), "Failed to assert that given one predicate, the evaluation succeeds.");
 
         // Asert that operator chaining works as expected
-        $predicate = number('x')->greaterThan(13)->andx()->lessThan(15);
+        $predicate = test_evaluator_number('x')->greaterThan(13)->andx()->lessThan(15);
         $this->assertTrue($predicate->evaluate(), "Failed to assert that operator chaining works as expected when simplify operator chaining.");
 
-        $predicate = number('x')->greaterThan(13)->andx()->number('x')->lessThan(15);
+        $predicate = test_evaluator_number('x')->greaterThan(13)->andx()->number('x')->lessThan(15);
         $this->assertTrue($predicate->evaluate(), "Failed to assert that operator chaining works as expected.");
 
         // Assert that number computations work as expected
-        let('y')->be(2);
-        $predicate = number('x')->plus('y')->equalTo(16);
+        test_evaluator_let('y')->be(2);
+        $predicate = test_evaluator_number('x')->plus('y')->equalTo(16);
         $this->assertTrue($predicate->evaluate(), "Failed to assert that computations work as expected.");
     }
 
@@ -93,8 +93,8 @@ class PredicateEvalutatorTest extends PHPUnit_Framework_TestCase
      */
     public function testEvaluateOperatorOnlyException()
     {
-        let('x')->be(14);
-        $predicate = number('x')->andx();
+        test_evaluator_let('x')->be(14);
+        $predicate = test_evaluator_number('x')->andx();
 
         $this->assertTrue($predicate->evaluate(), "Failed to throw an exception when only an operator was given.");
     }
@@ -104,8 +104,8 @@ class PredicateEvalutatorTest extends PHPUnit_Framework_TestCase
      */
     public function testEvaluateComputableOnlyException()
     {
-        let('x')->be(14);
-        $predicate = number('x')->plus('x');
+        test_evaluator_let('x')->be(14);
+        $predicate = test_evaluator_number('x')->plus('x');
 
         $this->assertTrue($predicate->evaluate(), "Failed to throw an exception when only a computable was given.");
     }
@@ -115,8 +115,8 @@ class PredicateEvalutatorTest extends PHPUnit_Framework_TestCase
      */
     public function testEvaluateMalformedException()
     {
-        let('x')->be(14);
-        $predicate = number('x')->greaterThan(12)->andx()->orx()->lessThan(16);
+        test_evaluator_let('x')->be(14);
+        $predicate = test_evaluator_number('x')->greaterThan(12)->andx()->orx()->lessThan(16);
 
         $this->assertTrue($predicate->evaluate(), "Failed to throw an exception when passed a malformed expression.");
     }
