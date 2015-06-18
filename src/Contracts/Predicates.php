@@ -135,6 +135,6 @@ abstract class Predicates
             }
         }
         
-        throw new \Exception("Method '$method' not found on all registered predicate sets.");        
+        throw new \InvalidArgumentException("Method '$method' not found on all registered predicate sets.");        
     }
 }
