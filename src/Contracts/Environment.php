@@ -115,4 +115,13 @@ class Environment
     {
         return count($this->store);
     }
+
+    /**
+     * A helper method to delete the current instance
+     * This is useful primaraly for testing
+     */
+    public static function reset()
+    {
+        self::$instance = null;
+    }
 }
