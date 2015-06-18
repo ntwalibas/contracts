@@ -31,7 +31,7 @@ class ObjectPredicatesTest extends PHPUnit_Framework_TestCase
 {
     public function testIsObject()
     {
-        // We test that given true, isObject returns true
+        // We test that given an object, isObject returns true
         test_object_let('__object__')->be(new StdClass);
         $predicate = test_object_objectx('__object__')->isObject();
         $this->assertTrue($predicate->evaluate(), "Failed to assert that isObject returns true when the bound symbol is an object.");

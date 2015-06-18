@@ -31,7 +31,7 @@ class StringPredicatesTest extends PHPUnit_Framework_TestCase
 {
     public function testIsString()
     {
-        // We test that given true, isString returns true
+        // We test that given a string, isString returns true
         test_string_let('__string__')->be("String");
         $predicate = test_string_stringx('__string__')->isString();
         $this->assertTrue($predicate->evaluate(), "Failed to assert that isString returns true when the bound symbol is an string.");

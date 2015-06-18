@@ -31,7 +31,7 @@ class ResourcePredicatesTest extends PHPUnit_Framework_TestCase
 {
     public function testIsResource()
     {
-        // We test that given true, isResource returns true
+        // We test that given a resource, isResource returns true
         test_resource_let('__resource__')->be(tmpfile());
         $predicate = test_resource_resourcex('__resource__')->isResource();
         $this->assertTrue($predicate->evaluate(), "Failed to assert that isResource returns true when the bound symbol is an resource.");
