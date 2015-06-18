@@ -1,6 +1,6 @@
 # Contracts - an assertion library
 
-**STATUS:** Full test coverage and more predicates.
+**STATUS:** Full test coverage, more predicates are the next goal and a better documentation.
 
 > This library is *somewhat* production ready. Please don't use it yet for sensitive data validation like in the money related domain.
 
