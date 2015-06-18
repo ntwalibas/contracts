@@ -24,11 +24,14 @@ class ForAll implements Quantifier
     public $traversable;
     private $traversableCount = 0;
 
+    private $forAll;
+
     public function __construct($symbol = null)
     {
         $this->symbol = $symbol;
         $this->environment = Environment::getInstance();
         $this->traversable = null;
+        $this->forAll = null;
     }
 
     public function __invoke($symbol)
@@ -108,6 +111,18 @@ class ForAll implements Quantifier
             return $result;
         };
 
-        return $forAll;
+        $this->forAll = $forAll;
+        return $this;
+    }
+
+    public function evaluate()
+    {
+        if (!is_null($this->forAll) && is_callable($this->forAll)) {
+            $forAll = $this->forAll;
+
+            return $forAll();
+        }
+
+        throw new \Exception("You must have a complete forAll quantifier prepared before evaluating it. This means you should have something of the like: forAll(...)->in(...)->itHoldsThat(...).");
     }
 }

@@ -24,11 +24,14 @@ class ThereExists implements Quantifier
     public $traversable;
     private $traversableCount = 0;
 
+    private $thereExists;
+
     public function __construct($symbol = null)
     {
         $this->symbol = $symbol;
         $this->environment = Environment::getInstance();
         $this->traversable = null;
+        $this->thereExists = null;
     }
 
     public function __invoke($symbol)
@@ -108,6 +111,18 @@ class ThereExists implements Quantifier
             return $result;
         };
 
-        return $thereExists;
+        $this->thereExists = $thereExists;
+        return $this;
+    }
+
+    public function evaluate()
+    {
+        if (!is_null($this->thereExists) && is_callable($this->thereExists)) {
+            $thereExists = $this->thereExists;
+
+            return $thereExists();
+        }
+
+        throw new \Exception("You must have a complete thereExists quantifier prepared before evaluating it. This means you should have something of the like: thereExists(...)->in(...)->suchThat(...).");
     }
 }
