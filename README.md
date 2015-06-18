@@ -309,10 +309,9 @@ forAll("user")->in($userAges)->itHoldsThat(
     varx("user:age")->greaterThan(18)
 );
 
-var_dump($allAdults()); // Return false
+var_dump($allAdults->evaluate()); // Return false
 
 ```
-Notice that there is not call to an evaluate method. The `itHoldsThat` method returns a callable which you run to get the result of the evalutation. The same for the existential quantifier.
 
 #### ThereExists
 The principle is the same as for the `ForAll` quantifier.
@@ -364,7 +363,7 @@ thereExists("user")->in($userAges)->suchThat(
     varx("user:age")->greaterThan(18)
 );
 
-var_dump($oneAdult()); // Return true
+var_dump($oneAdult->evaluate()); // Return true
 
 ```
 
@@ -382,13 +381,11 @@ forAll('x')->in($set)->itHoldsThat(
     )
 );
 
-var_dump($test()); // Will print true
+var_dump($test->evaluate()); // Will print true
 
 ```
 
 Note that with the example above, it is true that for all the elements in the said set, you can always find one other element in the same set (which is just the same element) such that their division will equal one.
-
-**Caution:** The fact that `itHoldsThat` and `suchThat` methods return callables is not stabilized yet and might break in the future to instead return objects on which you can call the `evaluate` method.
 
 ### Assert
 To run assertions, just pass your predicates or quantifiers to the `AssertThat` function or `Assert::That` static method. An additional argument is required to document the assertion.  
