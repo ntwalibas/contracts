@@ -29,6 +29,14 @@ class LogicParser
     public function parse($expression)
     {
         $stream = $this->lexer->lex($expression);
-        return $this->parser->parse($stream);
+        $result = $this->parser->parse($stream);
+
+        if ($result == 'true') {
+            return true;
+        } else if ($result == 'false') {
+            return false;
+        } else {
+            return $result;
+        }
     }
 }
