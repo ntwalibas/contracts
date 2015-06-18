@@ -118,7 +118,7 @@ class PredicateEvaluator
             } else if ($this->evaluationList[0] == "false") {
                 return false;
             } else {
-                throw new \Exception("The predicate must not be an operator. Operators are provided for chaining only as a convinience.");
+                throw new \Exception("The predicate must not be an operator. Operators are provided for chaining only as a convinience to bind predicates with for logical evaluation.");
             }
         }
 
