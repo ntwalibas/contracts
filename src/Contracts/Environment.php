@@ -107,4 +107,12 @@ class Environment
         unset($this->store);
         $this->store = array();
     }
+
+    /**
+     * Get the total number of symbols that have been registered
+     */
+    public function count()
+    {
+        return count($this->store);
+    }
 }
