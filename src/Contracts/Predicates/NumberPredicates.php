@@ -287,14 +287,14 @@ class NumberPredicates extends Predicates
 
     public function n_eq_t($constraint, $symbol)
     {
+        $operand = $this->getOperand($symbol);
+        $this->lastOperand = $operand;
+        $this->constraint = $constraint;
+        
         // Make sure the constraint is an integer or a floating point number
         if (!is_int($constraint) && !is_float($constraint)) {
             throw new \InvalidArgumentException("The notEqualTo operator expects the constraint to be an integer or float.");
         }
-
-        $operand = $this->getOperand($symbol);
-        $this->lastOperand = $operand;
-        $this->constraint = $constraint;
 
         if (!is_int($operand) && !is_float($operand)) {
             throw new \InvalidArgumentException("The notEqualTo operator expects the operand to be an integer or float.");
