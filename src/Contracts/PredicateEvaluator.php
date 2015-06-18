@@ -37,11 +37,37 @@ class PredicateEvaluator
         );
     }
 
+    public function predicatesCount()
+    {
+        $predicatesCount = 0;
+
+        foreach ($this->executionList as $value) {
+            if ($value['type'] == "PREDICATE") {
+                $predicatesCount++;
+            }
+        }
+
+        return $predicatesCount;
+    }
+
     public function registerOperator($operator)
     {
         $this->executionList[$operator] = array(
             "type" => "OPERATOR"
         );
+    }
+
+    public function operatorsCount()
+    {
+        $operatorsCount = 0;
+
+        foreach ($this->executionList as $value) {
+            if ($value['type'] == "OPERATOR") {
+                $operatorsCount++;
+            }
+        }
+
+        return $operatorsCount;
     }
 
     public function registerComputable($computable, $args)
@@ -52,9 +78,22 @@ class PredicateEvaluator
         );
     }
 
+    public function computablesCount()
+    {
+        $computablesCount = 0;
+
+        foreach ($this->executionList as $value) {
+            if ($value['type'] == "COMPUTABLE") {
+                $computablesCount++;
+            }
+        }
+
+        return $computablesCount;
+    }
+
     public function evaluate($predicates)
     {
-        $this->evaluationList = array(); // This is necessary because since th predicates objct is a reference, the array gets filled up with previous results we don't need
+        $this->evaluationList = array(); // This is necessary because since the predicates object is a reference, the array gets filled up with previous results we don't need
 
         foreach ($this->executionList as $fn => $data) {
             $args = isset($data["args"]) ? $data["args"] : array();
