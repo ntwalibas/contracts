@@ -39,6 +39,11 @@ class ThereExists implements Quantifier
         $this->symbol = $symbol;
     }
 
+    public function getTraversable()
+    {
+        return $this->traversable;
+    }
+
     public function in($traversable)
     {
         // Ensure we have an traversable
