@@ -41,7 +41,7 @@ class BooleanPredicatesTest extends PHPUnit_Framework_TestCase
         $predicate = test_bool_boolx('__bool__')->isBool();
         $this->assertTrue($predicate->evaluate(), "Failed to assert that isBool returns true when the bound symbol is false.");
 
-        // We test that given a different data type, isArray returns false
+        // We test that given a different data type, isBool returns false
         test_bool_let('__bool__')->be(null);
         $predicate = test_bool_boolx('__bool__')->isBool();
         $this->assertFalse($predicate->evaluate(), "Failed to assert that isBool returns false when the bound symbol is not a boolean.");
