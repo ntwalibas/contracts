@@ -1,8 +1,8 @@
 # Contracts - an assertion library
 
-**STATUS:** API stabilization. Feedback highly appreciated!
+**STATUS:** Full test coverage and more predicates.
 
-> This library is not production ready. Please don't use it in production but do play with it! It's a proof-of-concept.
+> This library is *somewhat* production ready. Please don't use it yet for sensitive data validation like in the money related domain.
 
 Contracts is a library to help you write quite intersting assertions. Initially, I was looking at making design by contract possible in PHP but due to the nature of task, I ended up settling with assertions but kept the name.
 
@@ -446,9 +446,9 @@ Contracts is licensed under `MIT`, see LICENSE file.
 Internally, Contracts uses internally [dissect](https://github.com/jakubledl/dissect) for properly evaluating boolean expressions.
 
 ## Next
-1. Write unit tests,
+1. Strive for full test coverage,
 2. Write more predicates and computations,
 3. Replace the boolean expression parser by a small recursive descent parser to eliminate the dependency on dissect,
-4. Improve on the overall architecture.
+4. Find a way to reply less on `__call`.
 
-At the moment, I'm trying to stabilize the API and write unit tests for the existing code. Once that's done, contributions are welcome!
+Contributions are welcome. Send a pull request if you have something to add. Tests are especially welcome!
