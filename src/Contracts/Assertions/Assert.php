@@ -14,6 +14,7 @@
 namespace Contracts\Assertions;
 
 use Contracts\Predicates;
+use Contracts\Quantifiers\Quantifier;
 use Contracts\Predicates\PredicateException;
 
 class Assert
@@ -42,9 +43,9 @@ class Assert
 
         foreach($predicates as $assertionId => $predicate) {
             // If we have a callable, we assume it's a quantifier
-            if (is_callable($predicate)) {
+            if ($predicate instanceof Quantifier) {
                 try {
-                    $result = $predicate();
+                    $result = $predicate->evaluate();
                 } catch(PredicateException $predicateException) {
                     $predicate = $predicateException->getPredicate();
                     $operand = $predicate->getLastOperand();
