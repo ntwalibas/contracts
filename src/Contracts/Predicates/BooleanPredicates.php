@@ -56,6 +56,4 @@ class BooleanPredicates extends Predicates
 
         return false;
     }
-
-
 }
