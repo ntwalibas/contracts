@@ -18,7 +18,7 @@ The library is available on [packagist](https://packagist.org/) and installable 
 ```JSON
 {
     "require": {
-        "ntwalibas/contracts": "dev-master"
+        "ntwalibas/contracts": "0.1.*"
     }
 }
 ```
