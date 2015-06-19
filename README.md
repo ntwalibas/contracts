@@ -265,7 +265,7 @@ Use `ForAll` to make sure all the elements in a traversable obey a given predica
 ```PHP
 <?php
 use Contracts\Quantifiers\ForAll;
-use Contracts\Helpers\forAll; // PHP 5.6+
+use function Contracts\Helpers\forAll; // PHP 5.6+
 
 // PHP 5.5-
 function forAll($symbol)
