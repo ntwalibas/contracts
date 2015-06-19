@@ -39,7 +39,7 @@ class AssertionFailedException extends \Exception
             return $this->errors[$assertionId]["constraints"];
         }
 
-        throw new \InvalidArgumentException("There is no assertion name <$assertionId>");
+        throw new \InvalidArgumentException("There is no assertion named <$assertionId>");
     }
 
     public function addOperand($assertionId, $operand)
@@ -53,7 +53,7 @@ class AssertionFailedException extends \Exception
             return $this->errors[$assertionId]["operands"];
         }
 
-        throw new \InvalidArgumentException("There is no assertion name <$assertionId>");
+        throw new \InvalidArgumentException("There is no assertion named <$assertionId>");
     }
 
     public function addException($assertionId, $exception)
@@ -67,6 +67,6 @@ class AssertionFailedException extends \Exception
             return $this->errors[$assertionId]["exception"];
         }
 
-        throw new \InvalidArgumentException("There is no assertion name <$assertionId>");
+        throw new \InvalidArgumentException("There is no assertion named <$assertionId>");
     }
 }
