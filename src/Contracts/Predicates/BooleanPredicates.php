@@ -41,16 +41,63 @@ class BooleanPredicates extends Predicates
     public function isBool()
     {
         $boundSymbol = $this->getSymbol();
-        $this->registerPredicate("i_b", array($boundSymbol));
+        $this->registerPredicate("i_bool", array($boundSymbol));
 
         return $this;
     }
 
-    public function i_b($symbol)
+    public function i_bool($symbol)
     {
         $operand = $this->getOperand($symbol);
+        $this->lastOperand = $operand;
 
         if (is_bool($operand)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * IsTrue predicate
+     */
+    public function isTrue()
+    {
+        $boundSymbol = $this->getSymbol();
+        $this->registerPredicate("i_true", array($boundSymbol));
+
+        return $this;
+    }
+
+    public function i_true($symbol)
+    {
+        $operand = $this->getOperand($symbol);
+        $this->lastOperand = $operand;
+
+        if ($operand === true) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * IsFalse predicate
+     */
+    public function isFalse()
+    {
+        $boundSymbol = $this->getSymbol();
+        $this->registerPredicate("i_false", array($boundSymbol));
+
+        return $this;
+    }
+
+    public function i_false($symbol)
+    {
+        $operand = $this->getOperand($symbol);
+        $this->lastOperand = $operand;
+
+        if ($operand === false) {
             return true;
         }
 
