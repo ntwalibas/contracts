@@ -86,6 +86,20 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($this->environment->resolve('__user_array__:age'), $age, "Failed to assert that given a key from a bound array we can retrieve the value associated to that key.");
     }
 
+    public function valuesProvider()
+    {
+        return array(
+            array('__bool__', true),
+            array('__int__', 1),
+            array('__float__', 1.56),
+            array('__string__', "Hello World"),
+            array('__array__', [1, 2, 3]),
+            array('__object__', new StdClass),
+            array('__null__', null),
+            //array('resource', tmpfile()), // This needs a thorough thinking
+        );
+    }
+
     /**
      * We test for the different exceptions that the resolve method can throw
      */
@@ -166,20 +180,6 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
 
         // An exception is thrown when we try to call a method on a non-object or access on a non-aray
         $this->assertEquals($this->environment->resolve('__scalar__:age'), null, "Failed to throw an exception when we tried a call/access on a non-object or array");
-    }
-
-    public function valuesProvider()
-    {
-        return array(
-            array('__bool__', true),
-            array('__int__', 1),
-            array('__float__', 1.56),
-            array('__string__', "Hello World"),
-            array('__array__', [1, 2, 3]),
-            array('__object__', new StdClass),
-            array('__null__', null),
-            //array('resource', tmpfile()), // This needs a thorough thinking
-        );
     }
 
     /**
