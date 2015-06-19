@@ -38,7 +38,7 @@ class NumberComputations extends Predicates
     {
         $operandOne = Environment::getInstance()->resolve($symbolOne);
 
-        if (is_int($symbolTwo) || is_float($symbolTwo) {
+        if (is_int($symbolTwo) || is_float($symbolTwo)) {
             $operandTwo = $symbolTwo;
         } else {
             $operandTwo = Environment::getInstance()->resolve($symbolTwo);
@@ -72,7 +72,7 @@ class NumberComputations extends Predicates
     {
         $operandOne = Environment::getInstance()->resolve($symbolOne);
 
-        if (is_int($symbolTwo) || is_float($symbolTwo) {
+        if (is_int($symbolTwo) || is_float($symbolTwo)) {
             $operandTwo = $symbolTwo;
         } else {
             $operandTwo = Environment::getInstance()->resolve($symbolTwo);
